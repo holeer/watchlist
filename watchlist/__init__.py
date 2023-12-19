@@ -9,10 +9,10 @@ if WIN: prefix = 'sqlite:///'
 else: prefix = 'sqlite:////'
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev')
 # os.path.dirname：数据库放在包外
-app.config['SQLALCHEMY_DATABASE_URI'] = prefix + os.path.join(os.path.dirname(app.root_path), 'data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = prefix + os.path.join(os.path.dirname(app.root_path), os.getenv('DATABASE_FILE', 'data.db'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'dev'
 
 db = SQLAlchemy(app)  # 初始化扩展
 login_manager = LoginManager(app)  # 实例化扩展类

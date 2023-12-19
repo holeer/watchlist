@@ -1,0 +1,14 @@
+click==8.1.7
+    # via flask
+Flask==2.1.3
+Flask-Login==0.6.3
+Flask-SQLAlchemy==2.5.1
+itsdangerous==2.1.2
+    # via flask
+Jinja2==3.1.2
+    # via flask
+Markupsafe==2.1.3
+    # via jinja2
+python-dotenv==1.0.0
+SQLAlchemy==1.4.47
+werkzeug==2.2.3
